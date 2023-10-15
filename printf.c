@@ -33,6 +33,6 @@ int _printf(const char *format, ...)
 		i++;
 	}	
 
-	return (cnt + 1);
+	return (cnt);
 
 }
