@@ -1,14 +1,20 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_o - print number of base 8/octal recursively
  * @n: number
+ * Return: number of bytes printed
  */
-void print_o(unsigned int n)
+int print_o(char *oct)
 {
-	if (n / 8)
-		fc_o(n / 8);
-	_putchar((n % 8) + '0');
+	int total = 0;
+	if (*(oct + 1) != '\0')
+	{
+		total += print_o(oct + 1);
+	}
+	return (_putchar(*oct));
 }
 
 /**
@@ -18,6 +24,46 @@ void print_o(unsigned int n)
  */
 int fc_o(unsigned int n)
 {
-	print_o(n);
-	return(count_digits(n) - 1);
+	char *oct;
+
+	oct = ensure_octal(n);
+	return(print_o(oct));
+}
+
+char *ensure_octal(unsigned int n)
+{
+	char *oct, *bin, *p1;
+	int i, len, j, coef, digit, bit;
+
+	
+	printf("||");
+	bin = binary_arr(n);
+	i = j = len = 0;
+	
+	while (bin[len])
+		len++;
+
+	oct = (char *) malloc(sizeof(char) * (len / 3) + 1);
+	p1 = oct;
+
+	while (*bin != '\0')
+	{
+		if (i % 3 == 0)
+		{
+			*p1 = digit + '0';
+			printf("%d", *p1);
+			p1++;
+			digit = 0;
+			coef = 1;
+		}
+
+		bit = (*bin == '0' ? 0 : 1);
+		digit += (bit * coef);
+		
+		coef *= 2;
+		i++;
+		bin++;
+	}
+	printf("||\n");
+	return (oct);
 }

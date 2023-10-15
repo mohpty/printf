@@ -32,16 +32,23 @@ int ensure_decimal(unsigned int n)
 {
 	char *bin;
 	int i, coff, output = 0;
+	int bit;
 
 	i = 0;
 	coff = 1;
 
 	bin = binary_arr(n);
-	
-	while (bin[i++])
+
+	while (bin[i] != '\0')
 	{
-		output += (coff * bin[i]);
+		if (bin[i] == '0')
+			bit = 0;
+		else
+			bit = 1;
+
+		output += (coff * bit);
 		coff *= 2;
+		i++;
 	}
 
 	return (output);
