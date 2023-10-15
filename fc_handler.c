@@ -56,6 +56,9 @@ int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
 			break;
 		case 'r':
 			return (fc_r(va_arg(*list, char *)));
+			break;
+		case 'R':
+			return (fc_R(va_arg(*list, char *)));
 		default:
 			return (0);
 	}
