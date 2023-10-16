@@ -22,6 +22,11 @@ int nums_convs(const char* format, unsigned int fc_ptr, va_list *list)
 		case 'o':
 			return (fc_o(va_arg(*list, unsigned int)));
 			break;
+		case 'x':
+			return (fc_x(va_arg(*list, unsigned int), 0));
+			break;
+		case 'X':
+			return (fc_x(va_arg(*list, unsigned int), 1));
 		case 'b':
 			return (fc_b(va_arg(*list, unsigned int)));
 			break;
@@ -59,6 +64,7 @@ int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
 			break;
 		case 'R':
 			return (fc_R(va_arg(*list, char *)));
+			break;
 		default:
 			return (0);
 	}
