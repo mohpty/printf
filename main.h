@@ -5,6 +5,7 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_binary(char *arr);
+int print_octal(char *arr);
 int ensure_decimal(unsigned int n);
 char *ensure_octal(unsigned int n);
 char *binary_arr(unsigned n);

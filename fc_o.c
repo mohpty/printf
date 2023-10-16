@@ -7,16 +7,17 @@
  * @n: number
  * Return: number of bytes printed
  */
-int print_o(char *oct)
-{
+int print_octal(char *arr)
+{   
 	int total = 0;
-	if (*(oct + 1) != '\0')
+	if (*arr != '\0')
 	{
-		total += print_o(oct + 1);
+		total += print_octal(arr + 1);
+		_putchar(*arr);
+		return (total + 1);
 	}
-	return (_putchar(*oct));
+	return (0);
 }
-
 /**
  * fc_o - handle %o format specifier for the printf function
  * @n: number to be converted
@@ -27,43 +28,51 @@ int fc_o(unsigned int n)
 	char *oct;
 
 	oct = ensure_octal(n);
-	return(print_o(oct));
+	return(print_octal(oct));
 }
 
+/**
+ * ensure_octal - ensure than the value of n is in base 8
+ * @n: number in unknown base
+ * Return: pointer to array of chars
+ */
 char *ensure_octal(unsigned int n)
 {
-	char *oct, *bin, *p1;
-	int i, len, j, coef, digit, bit;
+	char *bin, *oct;
+	unsigned i, j, len, idx;
+	int bit, digit;
 
-	
-	printf("||");
+	len = 0;
+	/* convert number to binary char array */
 	bin = binary_arr(n);
-	i = j = len = 0;
-	
-	while (bin[len])
+
+	/* make sure the number of digits is divisable by 3 */
+	while (bin[len] != '\0')
 		len++;
 
-	oct = (char *) malloc(sizeof(char) * (len / 3) + 1);
-	p1 = oct;
+	i = len;
+	while (i % 3 != 0)
+		bin[i++] = '0';
 
-	while (*bin != '\0')
+	oct = (char *) malloc(sizeof(char) * i + 1);
+	idx = 0;
+
+	/* calculate each digit and fill octal char array (it'll be in reverse)*/
+	idx = 0;
+	for (j = 0; j < i; j += 3)
 	{
-		if (i % 3 == 0)
-		{
-			*p1 = digit + '0';
-			printf("%d", *p1);
-			p1++;
-			digit = 0;
-			coef = 1;
-		}
+		digit = 0;
+		bit = (bin[j] == '0' ? 0 : 1);
+		digit += bit * 1;
 
-		bit = (*bin == '0' ? 0 : 1);
-		digit += (bit * coef);
-		
-		coef *= 2;
-		i++;
-		bin++;
+		bit = (bin[j + 1] == '0' ? 0 : 1);
+		digit += bit * 2;
+
+		bit = (bin[j + 2] == '0' ? 0 : 1);
+		digit += bit * 4;
+
+		oct[idx] = digit + '0';
+		idx++;
 	}
-	printf("||\n");
 	return (oct);
 }
