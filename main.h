@@ -17,6 +17,7 @@ int fc_r(char *s);
 int fc_R(char *s);
 int fc_c(char c);
 int fc_s(char *s);
+int fc_S(char *s);
 int fc_u(unsigned int x);
 int fc_o(unsigned int x);
 int fc_b(unsigned int n);

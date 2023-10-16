@@ -56,6 +56,8 @@ int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
 		case 's':
 			return fc_s(va_arg(*list, char *));
 			break;
+		case 'S':
+			return fc_S(va_arg(*list, char *));
 		case '%':
 			return (_putchar('%'));
 			break;

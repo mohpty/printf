@@ -78,7 +78,7 @@ char *ensure_hex(unsigned int n)
 		bit = (bin[j + 3] == '0' ? 0 : 1);
 		digit += bit * 8;
 		
-		if (digit > 10)
+		if (digit >= 10)
 		{
 			hex[idx] = (digit - 10) + 97;
 		}

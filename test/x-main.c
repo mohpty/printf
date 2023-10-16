@@ -3,14 +3,11 @@
 
 int main(void)
 {
-	int cnt1, cnt2;
-	cnt1 = _printf("%x\n", 1000);
-	cnt2 = printf("%x\n", 1000);
-	printf("ours:%d\nstandard:%d\n", cnt1, cnt2);
+	int i;
 	
-	cnt1 = _printf("%X\n", 1000);
-	cnt2 = printf("%X\n", 1000);
-	printf("ours:%d\nstandard:%d\n", cnt1, cnt2);
+	
+	for (i = 20; i < 45; i++)
+		printf("%x\n", i);
 	
 	return (0);
 }
