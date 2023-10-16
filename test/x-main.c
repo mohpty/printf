@@ -7,7 +7,7 @@ int main(void)
 	
 	
 	for (i = 20; i < 45; i++)
-		printf("%x\n", i);
+		printf("%#x\n", i);
 	
 	return (0);
 }

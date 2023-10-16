@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int flag_hash(int cap);
 /**
  * print_o - print number of base 8/octal recursively
  * @n: number
@@ -27,12 +28,38 @@ int print_hex(char *arr, int cap)
  * @n: number to be converted
  * Return: number of bytes printed
  */
-int fc_x(unsigned int n, int cap)
+int fc_x(unsigned int n, int cap, int fc_ptr, const char *format)
 {
 	char *hex;
-
+	int bytes = 0, i = fc_ptr;
 	hex = ensure_hex(n);
-	return(print_hex(hex, cap));
+	/* check for flags */
+	while (format[i] != '%')
+	{
+		switch (format[i])
+		{
+			case '#':
+				if (n == 0)
+					break;
+				bytes += flag_hash(cap);
+				break;
+			default:
+				break;
+		}
+		i--;
+	}
+	return(bytes + print_hex(hex, cap));
+}
+
+int flag_hash(int cap)
+{
+	_putchar('0');
+	if (cap)
+		_putchar('X');
+	else
+		_putchar('x');
+
+	return (2);
 }
 
 /**

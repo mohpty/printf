@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int oflag_hash(char *oct);
+
+
 /**
  * print_o - print number of base 8/octal recursively
  * @n: number
@@ -23,12 +26,38 @@ int print_octal(char *arr)
  * @n: number to be converted
  * Return: number of bytes printed
  */
-int fc_o(unsigned int n)
+int fc_o(unsigned int x, int fc_ptr, const char *format)
 {
 	char *oct;
+	unsigned int i = fc_ptr;
+	int bytes = 0;
 
-	oct = ensure_octal(n);
-	return(print_octal(oct));
+	oct = ensure_octal(x);
+	/* handle flags */
+	while (format[i] != '%')
+	{
+		switch (format[i])
+		{
+			case '#':
+				bytes += oflag_hash(oct);
+		}
+
+		i--;
+	}
+	return(bytes + print_octal(oct));
+}
+
+int oflag_hash(char *oct)
+{
+	unsigned int i = 0;
+
+	while (oct[i])
+		i++;
+
+	if (oct[i - 1] != 0)
+		_putchar('0');
+
+	return (1);
 }
 
 /**

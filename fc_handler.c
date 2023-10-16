@@ -1,5 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdlib.h>
+
 
 /**
  * nums_convs - check for number conversion format specifiers
@@ -14,19 +16,19 @@ int nums_convs(const char* format, unsigned int fc_ptr, va_list *list)
 	{
 		case 'd':
 		case 'i':
-			return (fc_d_i(va_arg(*list, int)));
+			return (fc_d_i(va_arg(*list, int), fc_ptr, format));
 			break;
 		case 'u':
 			return (fc_u(va_arg(*list, unsigned int)));
 			break;
 		case 'o':
-			return (fc_o(va_arg(*list, unsigned int)));
+			return (fc_o(va_arg(*list, unsigned int), fc_ptr, format));
 			break;
 		case 'x':
-			return (fc_x(va_arg(*list, unsigned int), 0));
+			return (fc_x(va_arg(*list, unsigned int), 0, fc_ptr, format));
 			break;
 		case 'X':
-			return (fc_x(va_arg(*list, unsigned int), 1));
+			return (fc_x(va_arg(*list, unsigned int), 1, fc_ptr, format));
 		case 'b':
 			return (fc_b(va_arg(*list, unsigned int)));
 			break;
@@ -45,6 +47,7 @@ int nums_convs(const char* format, unsigned int fc_ptr, va_list *list)
 int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
 {
 	int check_numconvs = nums_convs(format, fc_ptr, list);
+
 	if (check_numconvs)
 		return (check_numconvs);
 
@@ -58,6 +61,7 @@ int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
 			break;
 		case 'S':
 			return fc_S(va_arg(*list, char *));
+			break;
 		case '%':
 			return (_putchar('%'));
 			break;
