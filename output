@@ -1,0 +1,12 @@
+Let's try to printf a simple sentence.
+Length:[39, 39]
+Negative:[-762534]
+Unsigned:[2147484671]
+Unsigned octal:[20000001777]
+Unsigned hexadecimal:[800003ff, 800003FF]
+Character:[H]
+String:[I am a string !]
+Address:[]
+Percent:[en:[2653]
+Len:[19]
+Unknown:[

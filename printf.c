@@ -19,11 +19,13 @@ int _printf(const char *format, ...)
 
 	while (format[i])
 	{
-		fcp = i;
+		fcp = i + 1;
 		if (format[i] == '%')
 		{
-			while (!((format[fcp] >= 65 && format[fcp] <= 90) ||
-						(format[fcp] >= 97 && format[fcp] <= 122)))
+			while (!(
+						(format[fcp] >= 65 && format[fcp] <= 90) ||
+						(format[fcp] >= 97 && format[fcp] <= 122) ||
+						(format[fcp] == '%')))
 				fcp++;
 			cnt += fc_handler(format, fcp, &list);
 			i = fcp;

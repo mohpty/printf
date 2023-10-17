@@ -20,6 +20,8 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
 		return (check_numconvs);
 	if (check_chars)
 		return (check_chars);
+	
+	return (0);
 }
 
 /**
@@ -31,9 +33,10 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
  */
 int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 {
-	unsigned int i = fc_ptr;
-	int l = 0, h = 0;
-
+	/*unsigned int i = fc_ptr;
+	int l, h;
+	
+	l = h = 0;
 	while (format[i] != '%')
 	{
 		if (format[i] == 'l')
@@ -41,7 +44,7 @@ int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 		else if (format[i] == 'h')
 			h = 0;
 		i--;
-	}
+	}*/
 	switch (format[fc_ptr])
 	{
 		case 'd':
@@ -73,7 +76,6 @@ int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
  */
 int char_specs(const char *format, unsigned int fc_ptr, va_list *list)
 {
-	unsigned int i = fc_ptr;
 
 	switch (format[fc_ptr])
 	{
