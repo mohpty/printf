@@ -17,15 +17,12 @@ int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 		case 'd':
 		case 'i':
 			return (fc_d_i(va_arg(*list, int), fc_ptr, format));
-			break;
 		case 'u':
 			return (fc_u(va_arg(*list, unsigned int)));
 		case 'o':
 			return (fc_o(va_arg(*list, unsigned int), fc_ptr, format));
-			break;
 		case 'x':
 			return (fc_x(va_arg(*list, unsigned int), 0, fc_ptr, format));
-			break;
 		case 'X':
 			return (fc_x(va_arg(*list, unsigned int), 1, fc_ptr, format));
 		case 'b':
@@ -54,18 +51,15 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
 		case 'c':
 			return (fc_c(va_arg(*list, int)));
 		case 's':
-			return fc_s(va_arg(*list, char *));
-			break;
+			return (fc_s(va_arg(*list, char *)));
 		case 'S':
-			return fc_S(va_arg(*list, char *));
-			break;
+			return (fc_S(va_arg(*list, char *)));
 		case '%':
 			return (_putchar('%'));
 		case 'r':
 			return (fc_r(va_arg(*list, char *)));
 		case 'R':
 			return (fc_R(va_arg(*list, char *)));
-			break;
 		default:
 			return (0);
 	}

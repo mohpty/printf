@@ -6,14 +6,15 @@ int oflag_hash(char *oct);
 
 
 /**
- * print_o - print number of base 8/octal recursively
- * @oct: number
+ * print_octal - print number of base 8/octal recursively
+ * @arr: array of octal number digits
  *
  * Return: number of bytes printed
  */
 int print_octal(char *arr)
-{   
+{
 	int total = 0;
+
 	if (*arr != '\0')
 	{
 		total += print_octal(arr + 1);
@@ -24,7 +25,9 @@ int print_octal(char *arr)
 }
 /**
  * fc_o - handle %o format specifier for the printf function
- * @n: number to be converted
+ * @x: number to be converted
+ * @fc_ptr: pointer to %o format specifier, used for flag checks
+ * @format: format of printf
  * Return: number of bytes printed
  */
 int fc_o(unsigned int x, int fc_ptr, const char *format)
@@ -32,7 +35,7 @@ int fc_o(unsigned int x, int fc_ptr, const char *format)
 	char *oct;
 	unsigned int i;
 	int bytes;
-	
+
 	i = fc_ptr;
 	bytes = 0;
 
@@ -48,9 +51,14 @@ int fc_o(unsigned int x, int fc_ptr, const char *format)
 
 		i--;
 	}
-	return(bytes + print_octal(oct));
+	return (bytes + print_octal(oct));
 }
 
+/**
+ * oflag_hash - perform # flag function in format specifier %o
+ * @oct: digits of oct number
+ * Return: always 2
+ */
 int oflag_hash(char *oct)
 {
 	unsigned int i = 0;
@@ -73,7 +81,7 @@ int oflag_hash(char *oct)
 char *ensure_octal(unsigned int n)
 {
 	char *bin, *oct;
-	unsigned i, j, len, idx;
+	unsigned int i, j, len, idx;
 	int bit, digit;
 
 	len = 0;

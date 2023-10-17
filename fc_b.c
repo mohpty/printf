@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*
+/**
  * binary_arr - Function to convert an unsigned integer to a binary string
  * @n: The unsigned integer to convert.
  *
