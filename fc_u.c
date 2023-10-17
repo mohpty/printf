@@ -28,6 +28,13 @@ int fc_u(unsigned int n)
 	return (count_digits(number));
 }
 
+
+/**
+ * ensure_decimal - function to ensure parameter passed in is decimal
+ * @n: unsigned int to check
+ *
+ * Return: the output of the parameter
+ */
 int ensure_decimal(unsigned int n)
 {
 	char *bin;

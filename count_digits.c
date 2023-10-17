@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * count_o - count the number of digits
+ * count_digits - count the number of digits
  * @n: number
  * Return: number of digits of the number
- * */
+ *
+ */
 int count_digits(unsigned int n)
 {
 

@@ -16,7 +16,7 @@ int fc_S(char *s)
 
 	while (*s != '\0')
 	{
-		if ((0 < *s && *s < 32) || *s >= 127)
+		if ((*s < 0 && *s < 32) || *s >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
@@ -24,7 +24,7 @@ int fc_S(char *s)
 			if (*s < 16)
 				cnt += _putchar('0');
 			cnt += 2 + _printf("%X", *s);
-			
+
 		}
 		else
 		{
