@@ -15,7 +15,6 @@ char *binary_arr(unsigned int n)
 	int i;
 
 	i = 0;
-
 	p = (char *) malloc(sizeof(int) * 32);
 
 	if (p == NULL)
@@ -60,7 +59,12 @@ int fc_b(unsigned int b)
 {
 	int cnt = 0;
 	char *arr;
-
+	
+	if (b == 0)
+	{
+		_putchar('0');
+		return (0);
+	}
 	arr = binary_arr(b);
 
 	if (arr == NULL)
