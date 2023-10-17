@@ -16,7 +16,7 @@ char *binary_arr(unsigned int n);
 int fc_d_i(int x, int fc_ptr, const char *format);
 int fc_r(char *s);
 int fc_R(char *s);
-int fc_c(char c);
+int fc_c(unsigned char c);
 int fc_s(char *s);
 int fc_S(char *s);
 int fc_u(unsigned int x);

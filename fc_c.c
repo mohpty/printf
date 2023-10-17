@@ -5,7 +5,7 @@
  * @c: character to print
  * Return: 1 always
  */
-int fc_c(char c)
+int fc_c(unsigned char c)
 {
 	_putchar(c);
 	return (1);
