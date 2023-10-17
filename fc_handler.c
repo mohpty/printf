@@ -8,23 +8,19 @@
  * @list: argument lists
  * Return: number of characters printer
  */
-int nums_convs(const char* format, unsigned int fc_ptr, va_list *list)
+int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 {
 	switch (format[fc_ptr])
 	{
 		case 'd':
 		case 'i':
 			return (fc_d_i(va_arg(*list, int)));
-			break;
 		case 'u':
 			return (fc_u(va_arg(*list, unsigned int)));
-			break;
 		case 'o':
 			return (fc_o(va_arg(*list, unsigned int)));
-			break;
 		case 'b':
 			return (fc_b(va_arg(*list, unsigned int)));
-			break;
 	}
 
 	return (0);
@@ -37,26 +33,23 @@ int nums_convs(const char* format, unsigned int fc_ptr, va_list *list)
  * @list: pointer to the list of arguments
  * Return: number of characters printed
  */
-int fc_handler(const char* format, unsigned int fc_ptr, va_list *list)
+int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
 {
 	int check_numconvs = nums_convs(format, fc_ptr, list);
+
 	if (check_numconvs)
 		return (check_numconvs);
 
 	switch (format[fc_ptr])
 	{
 		case 'c':
-			return fc_c(va_arg(*list, int));
-			break;
+			return (fc_c(va_arg(*list, int)));
 		case 's':
-			return fc_s(va_arg(*list, char *));
-			break;
+			return (fc_s(va_arg(*list, char *)));
 		case '%':
 			return (_putchar('%'));
-			break;
 		case 'r':
 			return (fc_r(va_arg(*list, char *)));
-			break;
 		case 'R':
 			return (fc_R(va_arg(*list, char *)));
 		default:

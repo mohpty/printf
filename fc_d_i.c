@@ -9,6 +9,7 @@ int fc_d_i(int x)
 {
 	unsigned int number;
 	int cnt = 0;
+
 	if (x < 0)
 	{
 		number = -x;
@@ -23,6 +24,5 @@ int fc_d_i(int x)
 		fc_d_i(number / 10);
 
 	cnt += _putchar((number % 10) + '0');
-	
 	return (cnt);
 }

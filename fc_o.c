@@ -4,12 +4,14 @@
 
 /**
  * print_o - print number of base 8/octal recursively
- * @n: number
+ * @oct: number
+ *
  * Return: number of bytes printed
  */
 int print_o(char *oct)
 {
 	int total = 0;
+
 	if (*(oct + 1) != '\0')
 	{
 		total += print_o(oct + 1);
@@ -27,19 +29,24 @@ int fc_o(unsigned int n)
 	char *oct;
 
 	oct = ensure_octal(n);
-	return(print_o(oct));
+	return (print_o(oct));
 }
 
+/**
+ * ensure_octal - converts an unsigned integer to octal
+ * @n: The integer to convert
+ *
+ * Return: character converted
+ */
 char *ensure_octal(unsigned int n)
 {
 	char *oct, *bin, *p1;
 	int i, len, j, coef, digit, bit;
 
-	
 	printf("||");
 	bin = binary_arr(n);
 	i = j = len = 0;
-	
+
 	while (bin[len])
 		len++;
 
@@ -58,8 +65,7 @@ char *ensure_octal(unsigned int n)
 		}
 
 		bit = (*bin == '0' ? 0 : 1);
-		digit += (bit * coef);
-		
+		digit += (bit * coef);	
 		coef *= 2;
 		i++;
 		bin++;

@@ -12,15 +12,18 @@ int _printf(const char *format, ...)
 	unsigned int i = 0;
 	unsigned int cnt = 0;
 	unsigned int fcp;
+
 	va_list list;
-	
+
 	va_start(list, *format);
+
 	while (format[i])
 	{
 		fcp = i;
 		if (format[i] == '%')
 		{
-			while (!((format[fcp] >= 65 && format[fcp] <= 90) || (format[fcp] >= 97 && format[fcp] <= 122)))
+			while (!((format[fcp] >= 65 && format[fcp] <= 90) ||
+						(format[fcp] >= 97 && format[fcp] <= 122)))
 				fcp++;
 			cnt += fc_handler(format, fcp, &list);
 			i = fcp;
@@ -31,7 +34,8 @@ int _printf(const char *format, ...)
 			cnt++;
 		}
 		i++;
-	}	
+	}
+	va_end(list);
 
 	return (cnt);
 
