@@ -12,7 +12,8 @@ int print_decimal(int x);
 int fc_d_i(int x, int fc_ptr, const char* format)
 {
 	unsigned int number;
-	int cnt = 0, i = fc_ptr;
+	int cnt = 0;
+	int i = fc_ptr;
 
 	/* check for flags first */
 	while (format[i] != '%')

@@ -7,7 +7,8 @@ int oflag_hash(char *oct);
 
 /**
  * print_o - print number of base 8/octal recursively
- * @n: number
+ * @oct: number
+ *
  * Return: number of bytes printed
  */
 int print_octal(char *arr)
@@ -29,8 +30,11 @@ int print_octal(char *arr)
 int fc_o(unsigned int x, int fc_ptr, const char *format)
 {
 	char *oct;
-	unsigned int i = fc_ptr;
-	int bytes = 0;
+	unsigned int i;
+	int bytes;
+	
+	i = fc_ptr;
+	bytes = 0;
 
 	oct = ensure_octal(x);
 	/* handle flags */
@@ -61,9 +65,10 @@ int oflag_hash(char *oct)
 }
 
 /**
- * ensure_octal - ensure than the value of n is in base 8
- * @n: number in unknown base
- * Return: pointer to array of chars
+ * ensure_octal - converts an unsigned integer to octal
+ * @n: The integer to convert
+ *
+ * Return: character converted
  */
 char *ensure_octal(unsigned int n)
 {
@@ -76,7 +81,9 @@ char *ensure_octal(unsigned int n)
 	bin = binary_arr(n);
 
 	/* make sure the number of digits is divisable by 3 */
-	while (bin[len] != '\0')
+	i = j = len = 0;
+
+	while (bin[len])
 		len++;
 
 	i = len;
@@ -84,7 +91,6 @@ char *ensure_octal(unsigned int n)
 		bin[i++] = '0';
 
 	oct = (char *) malloc(sizeof(char) * i + 1);
-	idx = 0;
 
 	/* calculate each digit and fill octal char array (it'll be in reverse)*/
 	idx = 0;
