@@ -16,11 +16,12 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
 {
 	int check_numconvs = nums_convs(format, fc_ptr, list);
 	int check_chars = char_specs(format, fc_ptr, list);
+
 	if (check_numconvs)
 		return (check_numconvs);
 	if (check_chars)
 		return (check_chars);
-	
+
 	return (0);
 }
 
@@ -33,18 +34,19 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
  */
 int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 {
-	/*unsigned int i = fc_ptr;
-	int l, h;
-	
-	l = h = 0;
-	while (format[i] != '%')
-	{
-		if (format[i] == 'l')
-			l = 0;
-		else if (format[i] == 'h')
-			h = 0;
-		i--;
-	}*/
+	/*
+	 * unsigned int i = fc_ptr;
+	 * int l, h;
+	 * l = h = 0;
+	 * while (format[i] != '%')
+	 * {
+	 * if (format[i] == 'l')
+	 * l = 0;
+	 * else if (format[i] == 'h')
+	 * h = 0;
+	 * i--;
+	 * }
+	 */
 	switch (format[fc_ptr])
 	{
 		case 'd':
