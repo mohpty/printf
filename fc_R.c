@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * fc_R - handle the %R custom specifier
@@ -8,32 +9,24 @@
  */
 int fc_R(char *s)
 {
-	char chr;
+	int chr;
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		chr = s[i];
+		chr = s[i] + 13;
+
 		if (s[i] >= 65 && s[i] <= 90)
-		{
-			/* handling Upper case letters */
-			chr += 13;
-			if (chr > 90)
-				chr -= 26;
+			chr = (chr > 90 ? chr - 26 : chr);
 
-		}
-		else if (s[i] >= 97 && s[i] <= 122)
-		{
-			/* handling Lower case letters */
-			chr += 13;
-			if (chr > 122)
-				chr -= 26;
+		else if (s[i] >= 97 && s[i] < 123)
+			chr = (chr > 122 ? chr - 26 : chr);
 
-		}
+		else
+			chr = s[i];
 
 		_putchar(chr);
 		i++;
 	}
-
 	return (i);
 }

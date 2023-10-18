@@ -59,7 +59,7 @@ int fc_b(unsigned int b)
 {
 	int cnt = 0;
 	char *arr;
-	
+
 	if (b == 0)
 	{
 		_putchar('0');

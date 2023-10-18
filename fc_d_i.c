@@ -38,7 +38,7 @@ int fc_d_i(int x, int fc_ptr, const char *format)
 	if (x < 0)
 	{
 		number = -x;
-		_putchar('-');
+		cnt += _putchar('-');
 	}
 	else
 	{
