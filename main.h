@@ -4,6 +4,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_specifier(const char *format, unsigned int fc_ptr);
 int print_decimal(int x);
 int print_binary(char *arr);
 int print_octal(char *arr);

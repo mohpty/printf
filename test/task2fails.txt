@@ -1,0 +1,175 @@
+Correct output - case: _printf("%b", 1024);
+
+Score: 0 out of 10 points
+
+Reason:
+
+[Got]
+1000000000010000000000Lengths differ.
+
+(38 chars long)
+[stderr]: 
+(0 chars long)
+[Expected]
+1000000000010000000000
+(22 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+---------
+
+Correct output - case: _printf("%b", -1024);
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+1111111111111111111111000000000011111111111111111111110000000000Lengths differ.
+
+(80 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+1111111111111111111111000000000011111111111111111111110000000000
+(64 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%b", 0);
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+00Lengths differ.
+
+(18 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+00
+(2 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+-------
+
+Correct output - case: _printf("%b", UINT_MAX);
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+1111111111111111111111111111111111111111111111111111111111111111Lengths differ.
+
+(80 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+1111111111111111111111111111111111111111111111111111111111111111
+(64 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+---------
+
+Correct output - case: _printf("%b", l); where l is a long int equals to UINT_MAX + 1024
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+11111111111111111111Lengths differ.
+
+(36 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+11111111111111111111
+(20 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+---------
+
+Correct output - case: _printf("There is %b bytes in %b KB\n", 1024, 1);
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+There is 10000000000 bytes in 1 KB
+There is 10000000000 bytes in 1 KB
+Lengths differ.
+
+(86 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+There is 10000000000 bytes in 1 KB
+There is 10000000000 bytes in 1 KB
+
+(70 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+---------
+
+Correct output - case: _printf("%b - %b = %b\n", 2048, 1024, 1024);
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+100000000000 - 10000000000 = 10000000000
+100000000000 - 10000000000 = 10000000000
+Lengths differ.
+
+(98 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+100000000000 - 10000000000 = 10000000000
+100000000000 - 10000000000 = 10000000000
+
+(82 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+-----------
+
+Correct output - case: _printf("%b + %b = %b\n", INT_MAX, INT_MAX, res); where res is long int equals to INT_MAX * 2
+
+Score: 0 out of 10 points
+
+Reason:
+
+msg - [Got]
+1111111111111111111111111111111 + 1111111111111111111111111111111 = 11111111111111111111111111111110
+1111111111111111111111111111111 + 1111111111111111111111111111111 = 11111111111111111111111111111110
+Lengths differ.
+
+(218 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+1111111111111111111111111111111 + 1111111111111111111111111111111 = 11111111111111111111111111111110
+1111111111111111111111111111111 + 1111111111111111111111111111111 = 11111111111111111111111111111110
+
+(202 chars long)
+[stderr]: [Anything]
+(0 chars long) [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long] [Diff had to be removed because it was too long]
+
+
+
+--------
+
+

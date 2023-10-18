@@ -4,7 +4,7 @@
 
 int nums_convs(const char *format, unsigned int fc_ptr, va_list *list);
 int char_specs(const char *format, unsigned int fc_ptr, va_list *list);
-
+int print_specifier(const char *format, unsigned int fc_ptr);
 /**
  * fc_handler - determine the format specifier and handle it
  * @format: main string from the driver function
@@ -19,10 +19,35 @@ int fc_handler(const char *format, unsigned int fc_ptr, va_list *list)
 
 	if (check_numconvs)
 		return (check_numconvs);
-	if (check_chars)
+	else if (check_chars)
 		return (check_chars);
-
+	else
+		return (print_specifier(format, fc_ptr));
 	return (0);
+}
+
+/**
+ * print_specifier - print format specifier literally if it's not supported
+ * @format: printf format
+ * @fc_ptr: index of the last character in the format specifier
+ * Return: number of characters printed
+ */
+int print_specifier(const char *format, unsigned int fc_ptr)
+{
+	unsigned int i;
+	int counter = 0;
+
+	i = fc_ptr;
+	if (format[fc_ptr] == '\0')
+		fc_ptr--;
+
+	while (format[i] != '%')
+		i--;
+
+	for (; i <= fc_ptr; i++)
+		counter += _putchar(format[i]);
+
+	return (counter);
 }
 
 /**

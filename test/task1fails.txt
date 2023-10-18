@@ -1,0 +1,218 @@
+Correct output - case: _printf("%d", -1024);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-1024-1024Lengths differ.
+
+(26 chars long)
+[stderr]: 
+(0 chars long)
+[Expected]
+-1024-1024
+(10 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%d", INT_MIN);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-./,),(-*,(-2147483648Lengths differ.
+
+(38 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-2147483648-2147483648
+(22 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+---------
+
+Correct output - case: _printf("%d", l); where l is a long int equals to INT_MAX + 1024
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-2147482625-2147482625Lengths differ.
+
+(38 chars long)
+[stderr]: 
+(0 chars long)
+[Expected]
+-2147482625-2147482625
+(22 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%d - %d = %d\n", 1024, 2048, -1024);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+1024 - 2048 = -1024
+1024 - 2048 = -1024
+Lengths differ.
+
+(56 chars long)
+[stderr]: 
+(0 chars long)
+[Expected]
+1024 - 2048 = -1024
+1024 - 2048 = -1024
+
+(40 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-./,),(-*,( + 2147483647 = -1
+-2147483648 + 2147483647 = -1
+Lengths differ.
+
+(76 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-2147483648 + 2147483647 = -1
+-2147483648 + 2147483647 = -1
+
+(60 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+
+Correct output - case: _printf("%i", -1024);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-1024-1024Lengths differ.
+
+(26 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-1024-1024
+(10 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%i", INT_MIN);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-./,),(-*,(-2147483648Lengths differ.
+
+(38 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-2147483648-2147483648
+(22 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+--------
+
+Correct output - case: _printf("%i", l); where l is a long int equals to INT_MAX + 1024
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-2147482625-2147482625Lengths differ.
+
+(38 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-2147482625-2147482625
+(22 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+-------
+
+Correct output - case: _printf("%i - %i = %i\n", 1024, 2048, -1024);
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+1024 - 2048 = -1024
+1024 - 2048 = -1024
+Lengths differ.
+
+(56 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+1024 - 2048 = -1024
+1024 - 2048 = -1024
+
+(40 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+-------
+
+Correct output - case: _printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+
+Score: 0 out of 1 points
+
+Reason:
+
+msg - [Got]
+-./,),(-*,( + 2147483647 = -1
+-2147483648 + 2147483647 = -1
+Lengths differ.
+
+(76 chars long)
+[stderr]:
+(0 chars long)
+[Expected]
+-2147483648 + 2147483647 = -1
+-2147483648 + 2147483647 = -1
+
+(60 chars long)
+[stderr]: [Anything]
+(0 chars long)
+
+------
+
+
