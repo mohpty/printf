@@ -86,7 +86,7 @@ int nums_convs(const char *format, unsigned int fc_ptr, va_list *list)
 		case 'X':
 			return (fc_x(va_arg(*list, unsigned int), 1, fc_ptr, format));
 		case 'b':
-			return (fc_b(va_arg(*list, unsigned int)));
+			return (1 + fc_b(va_arg(*list, unsigned int)));
 	}
 
 	return (0);
